@@ -5,7 +5,7 @@ import {map, Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class RickAndmortyService {
+export class RickAndMortyServ {
   private url = 'https://rickandmortyapi.com/api/character';
 
   constructor(private http: HttpClient) { }
