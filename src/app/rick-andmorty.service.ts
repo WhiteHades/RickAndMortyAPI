@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {map, Observable} from 'rxjs';
+import { Observable} from 'rxjs';
 import { Character } from './character.model';
+import { ApiResponse } from './character.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class RickAndMortyServ {
 
   constructor(private http: HttpClient) { }
 
-  getChars(page: number = 1): Observable<{results: Character[]}> {
-    return this.http.get<{results: Character[]}>(`${this.url}?page=${page}`);
+  getChars(page: number = 1): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(`${this.url}/?page=${page}`);
   }
 }

@@ -1,5 +1,7 @@
 import { OnInit, Component } from '@angular/core';
 import { RickAndMortyServ } from '../rick-andmorty.service';
+import { Character } from '../character.model';
+import { ApiResponse } from '../character.model';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +11,7 @@ import { RickAndMortyServ } from '../rick-andmorty.service';
 export class HomeComponent implements OnInit{
   presentPg = 1;
   totalPg = 0;
-  chars = [];
+  chars: Character[] = [];
   pageNumbers: number[] = [];
 
   constructor(private rickAndMortyServ: RickAndMortyServ) { }
@@ -17,15 +19,21 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void { this.loadChars(); }
 
   loadChars(): void {
-    this.rickAndMortyServ.getChars(this.presentPg).subscribe(response => {
-      this.chars = response.results;
-      this.totalPg = response.info.pages;
-      this.pageNumbers = Array.from({length: this.totalPg}, (_, i) => i + 1);
+    this.rickAndMortyServ.getCharacters(this.presentPg).subscribe({
+      next: (response: ApiResponse) => {
+        this.chars = response.results;
+        this.totalPg = response.info.pages;
+      },
+      error: (error: any) => { console.error('Error fetching characters:', error); }
     });
   }
 
-  next(page: number): void {
+  page(page: number): void {
     this.presentPg = page;
     this.loadChars();
+  }
+
+  next(): void {
+    if (this.presentPg < this.totalPg) { this.presentPg++; this.loadChars(); }
   }
 }
