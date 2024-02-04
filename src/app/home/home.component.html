@@ -1,1 +1,35 @@
-<p>home works!</p>
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Avatar</th>
+      <th>Name</th>
+      <th>Species</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let character of chars">
+      <td><img [src]="character.image" alt="avatar" width="50"></td>
+      <td>{{ character.name }}</td>
+      <td>{{ character.species }}</td>
+      <td>{{ character.status }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="presentPg === 1">
+        <a class="page-link" href="#" (click)="next(presentPg - 1)">Previous</a>
+      </li>
+      <li class="page-item" *ngFor="let page of [].constructor(totalPg) | numberToArray; let i = index" [class.active]="presentPg === i + 1">
+        <a class="page-link" href="#" (click)="next(i + 1)">{{ i + 1 }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="presentPg === totalPg">
+        <a class="page-link" href="#" (click)="next(presentPg + 1)">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+</div>
+
