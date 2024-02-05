@@ -23,9 +23,7 @@
     <a href="javascript:void(0)" (click)="prev()" [class.disabled]="displayPage === 1">
       <i class="material-icons">chevron_left</i>
     </a>
-<!--    <span>Page {{ displayPage }} of {{ totalDisplayPages }}</span>-->
-    <ng-container *ngFor="let p of getVisiblePageNumbers
-()">
+    <ng-container *ngFor="let p of getVisiblePageNumbers()">
       <a href="javascript:void(0)" (click)="goToDisplayPage(p)" [class.active]="displayPage === p">{{ p }}</a>
     </ng-container>
     <a href="javascript:void(0)" (click)="next()" [class.disabled]="displayPage === totalDisplayPages">
