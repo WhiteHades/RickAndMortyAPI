@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="container">
   <table class="table">
     <thead>
@@ -9,8 +10,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let character of chars">
-      <td><img [src]="character.image" alt="avatar" width="50"></td>
+    <tr *ngFor="let character of displayedChars">
+      <td><img [src]="character.image" alt="avatar" class="character-avatar"></td>
       <td>{{ character.name }}</td>
       <td>{{ character.species }}</td>
       <td>{{ character.status }}</td>
@@ -18,15 +19,17 @@
     </tbody>
   </table>
   <div class="pagination-container">
-    <a href="javascript:void(0)" (click)="page(presentPg - 1)" [class.disabled]="presentPg === 1">
-      <i class="fas fa-arrow-left"></i>
+    <!-- Pagination controls -->
+    <a href="javascript:void(0)" (click)="prev()" [class.disabled]="displayPage === 1">
+      <i class="material-icons">chevron_left</i>
     </a>
-    <a href="javascript:void(0)" *ngFor="let number of visiblePageNumbers" [class.active]="presentPg === number"
-       (click)="page(number)">
-      {{ number }}
-    </a>
-    <a href="javascript:void(0)" (click)="page(presentPg + 1)" [class.disabled]="presentPg === totalPg">
-      <i class="fas fa-arrow-right"></i>
+<!--    <span>Page {{ displayPage }} of {{ totalDisplayPages }}</span>-->
+    <ng-container *ngFor="let p of getVisiblePageNumbers
+()">
+      <a href="javascript:void(0)" (click)="goToDisplayPage(p)" [class.active]="displayPage === p">{{ p }}</a>
+    </ng-container>
+    <a href="javascript:void(0)" (click)="next()" [class.disabled]="displayPage === totalDisplayPages">
+      <i class="material-icons">chevron_right</i>
     </a>
   </div>
 </div>
