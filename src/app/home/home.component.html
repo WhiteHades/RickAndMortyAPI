@@ -1,5 +1,14 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div class="container">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Character Table</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<header>
+</header>
+
+<main class="container">
   <table class="table">
     <thead>
     <tr>
@@ -18,8 +27,8 @@
     </tr>
     </tbody>
   </table>
+
   <div class="pagination-container">
-    <!-- Pagination controls -->
     <a href="javascript:void(0)" (click)="prev()" [class.disabled]="displayPage === 1">
       <i class="material-icons">chevron_left</i>
     </a>
@@ -30,5 +39,9 @@
       <i class="material-icons">chevron_right</i>
     </a>
   </div>
-</div>
+</main>
 
+<footer>
+</footer>
+</body>
+</html>
