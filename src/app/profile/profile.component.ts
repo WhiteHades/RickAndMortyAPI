@@ -13,7 +13,7 @@ export class ProfileComponent implements  OnInit {
   characterId: number | null = null
   character: Character | null = null
 
-  constructor(private route: ActivatedRoute, private rickAndMortyServ: RickAndMortyServ) {}
+  constructor(private route: ActivatedRoute, private rickAndMortyServ: RickAndMortyServ, private router: Router) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -28,5 +28,9 @@ export class ProfileComponent implements  OnInit {
       next: (character: Character) => { this.character = character; },
       error: (error) => { console.error('Error fetching character data:', error); }
     });
+  }
+
+  goBack(): void {
+    this.router.navigate(['/home']).then(r => console.log('Navigated to home'));
   }
 }
