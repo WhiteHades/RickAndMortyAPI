@@ -14,3 +14,12 @@ export interface ApiResponse {
   };
   results: Character[];
 }
+
+export interface CharacterDetails extends Character {
+  type: string;
+  gender: string;
+  origin: { name: string; url: string };
+  location: { name: string; url: string };
+  episode: string[];
+  created: string;
+}
