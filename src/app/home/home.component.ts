@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit{
   totalPg = 0;
   chars: Character[] = [];
   pageNumbers: number[] = [];
+  visiblePageNumbers: number[] = [];
 
   constructor(private rickAndMortyServ: RickAndMortyServ) { }
 
@@ -20,9 +21,21 @@ export class HomeComponent implements OnInit{
 
   loadChars(): void {
     this.rickAndMortyServ.getChars(this.presentPg).subscribe({
-      next: (response: ApiResponse) => { this.chars = response.results; this.totalPg = response.info.pages; },
+      next: (response: ApiResponse) => {
+        this.chars = response.results;
+        this.totalPg = response.info.pages;
+        this.pageNumbers = Array.from({length: this.totalPg}, (_, i) => i + 1);
+        this.updateVisiblePageNumbers();
+      },
       error: (error: any) => { console.error('Error fetching characters:', error); }
     });
+  }
+
+  updateVisiblePageNumbers(): void {
+    const surroundingPages = 2; // Number of pages to show around the current page
+    const startPage = Math.max(1, this.presentPg - surroundingPages);
+    const endPage = Math.min(this.totalPg, this.presentPg + surroundingPages);
+    this.visiblePageNumbers = Array.from({ length: (endPage - startPage) + 1 }, (_, i) => startPage + i);
   }
 
   page(page: number): void { this.presentPg = page; this.loadChars(); }
