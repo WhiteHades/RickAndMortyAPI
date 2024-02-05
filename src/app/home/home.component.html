@@ -21,13 +21,21 @@
     </thead>
     <tbody>
     <tr *ngFor="let character of displayedChars">
-      <td><img [src]="character.image" alt="avatar" class="character-avatar"></td>
-      <td>{{ character.name }}</td>
+      <td>
+        <img [src]="character.image" alt="avatar" class="character-avatar" (click)="goToProfile(character.id)">
+      </td>
+      <td>
+        <span class="click1" (click)="goToProfile(character.id)">{{ character.name }}</span>
+      </td>
       <td>{{ character.species }}</td>
       <td>{{ character.status }}</td>
     </tr>
     </tbody>
   </table>
+
+<!--  <div class="search-container">-->
+<!--    <input type="text" [(ngModel)]="searchTerm" (input)="filterChar()" placeholder="Search">-->
+<!--  </div>-->
 
   <div class="pagination-container">
     <a href="javascript:void(0)" (click)="prev()" [class.disabled]="displayPage === 1">

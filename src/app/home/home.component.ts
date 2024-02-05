@@ -2,6 +2,7 @@ import { OnInit, Component } from '@angular/core';
 import { RickAndMortyServ } from '../rick-andmorty.service';
 import { Character } from '../character.model';
 import { ApiResponse } from '../character.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit{
   chars: Character[] = [];
   displayedChars: Character[] = [];
 
-  constructor(private rickAndMortyServ: RickAndMortyServ) { }
+  constructor(private rickAndMortyServ: RickAndMortyServ, private router: Router) { }
 
   ngOnInit(): void { this.fetchApiPage(); }
 
@@ -66,6 +67,8 @@ export class HomeComponent implements OnInit{
       this.updateDisplayedChars(true);
     } else console.log("Requested page is out of range.");
   }
+
+  goToProfile(id: number): void { this.router.navigate(['/profile', id]);   }
 
   get totalDisplayPages(): number {
     const totalCharacters = this.chars.length;
