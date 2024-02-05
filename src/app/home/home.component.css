@@ -1,18 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 
-:root {
-  --primary-color: #5c6bc0;
-  --accent-color: #ffc107;
-  --background-color: #f5f5f5;
-  --text-color: #212121;
-  --code-font: 'Roboto Mono', monospace;
-  --primary-font: 'Roboto', sans-serif;
+body {
+  font-family: 'JetBrains Mono', monospace;
+  margin: 0;
+  padding: 0;
+  background-color: #282c34;
+  color: #abb2bf;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+header, footer {
+  text-align: center;
+  position: fixed;
+  left: 0;
+  padding: 30px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: #282c34;
+  color: #abb2bf;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+header {
+  top: 0;
+}
+
+footer {
+  bottom: 0;
 }
 
 .container {
-  max-width: 960px;
-  margin: auto;
-  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 100px 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: auto;
 }
 
 .table {
@@ -25,10 +51,6 @@
   text-align: left;
   padding: 12px;
   border-bottom: 1px solid #eee;
-}
-
-.table th {
-  background-color: #f8f8f8;
 }
 
 .table img {
@@ -54,28 +76,29 @@
   display: flex;
   transition: background-color 0.3s ease;
   text-decoration: none;
-  color: #5c6bc0;
+  color: #ece48b;
   padding: 8px 12px;
   margin: 0 4px;
-  border-radius: 4px;
+  border-radius: 50px;
   align-items: center;
   justify-content: center;
 }
 
 .pagination-container a:hover,
 .pagination-container a.active {
-  background-color: #5c6bc0;
-  color: #ffffff;
-  border-radius: 4px;
+  background-color: #ece48b;
+  color: #282c34;
+  border-radius: 50px;
 }
 
 .pagination-container a.disabled {
   color: #cccccc;
   pointer-events: none;
+  border-radius: 50px;
 }
 
 .material-icons {
-  font-family: 'Material Icons';
+  font-family: 'Material Icons', serif;
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
@@ -86,6 +109,7 @@
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #abb2bf;
 
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;

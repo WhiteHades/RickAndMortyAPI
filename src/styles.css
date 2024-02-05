@@ -1,2 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
-@import '@fortawesome/fontawesome-free/css/all.css';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #ece48b;
+  color: #282c34;
+}
+
+::-moz-selection {
+  background: #ece48b;
+  color: #282c34;
+  border-radius: 5px;
+}
