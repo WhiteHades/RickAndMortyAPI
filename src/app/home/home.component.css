@@ -17,7 +17,6 @@ header, footer {
   position: fixed;
   left: 0;
   padding: 30px 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   background-color: #282c34;
   color: #abb2bf;
   width: 100%;
@@ -26,10 +25,27 @@ header, footer {
 
 header {
   top: 0;
+  /*border-bottom: 2px solid #ece48b;*/
 }
 
 footer {
   bottom: 0;
+  font-size: 15px;
+  padding-bottom: 60px;
+  /*border-top: 3px solid #ece48b;*/
+}
+
+.footer-link {
+  color: #fff;
+  box-shadow: 0 2px 0 #ece48b;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-link:hover {
+  color: #ece48b;
+  box-shadow: 0 2px 0 #282c34;
 }
 
 .container {
