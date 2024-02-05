@@ -1,8 +1,7 @@
 import { OnInit, Component } from '@angular/core';
-import { Character } from "../character.model";
-import { ActivatedRoute } from '@angular/router';
+import { CharacterDetails } from "../character.model";
+import { ActivatedRoute, Router } from '@angular/router';
 import { RickAndMortyServ } from '../rick-andmorty.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements  OnInit {
   characterId: number | null = null
-  character: Character | null = null
+  character: CharacterDetails | null = null
 
   constructor(private route: ActivatedRoute, private rickAndMortyServ: RickAndMortyServ, private router: Router) {}
 
@@ -24,8 +23,8 @@ export class ProfileComponent implements  OnInit {
   }
 
   loadCharacter(id: number): void {
-    this.rickAndMortyServ.getChar(id).subscribe({ // Assuming the correct method name is getCharacter
-      next: (character: Character) => { this.character = character; },
+    this.rickAndMortyServ.getChar(id).subscribe({
+      next: (character: CharacterDetails) => { this.character = character; },
       error: (error) => { console.error('Error fetching character data:', error); }
     });
   }

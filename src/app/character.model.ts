@@ -5,6 +5,7 @@ export interface Character {
   species: string;
   image: string;
 }
+
 export interface ApiResponse {
   info: {
     count: number;

@@ -9,8 +9,21 @@
   <h2>Rick And Morty API</h2>
 </header>
 
-<div class="profile-container">
-
+<div *ngIf="character" class="profile-container">
+  <img [src]="character.image" alt="{{ character.name }}" class="character-image">
+  <h2>{{ character.name }} • {{ character.species }}</h2>
+  <p><strong>ID:</strong> {{ character.id }}</p>
+  <p>
+    <strong>Status:</strong> {{ character.status }}
+    <span [class]="character.status === 'Alive' ? 'status-indicator alive' : 'status-indicator dead'"></span>
+  </p>
+  <p><strong>Type:</strong> {{ character.type || 'N/A' }}</p>
+  <p><strong>Gender:</strong> {{ character.gender }}</p>
+  <p><strong>Origin:</strong> {{ character.origin.name }}</p>
+  <p><strong>Last Known Location:</strong> {{ character.location.name }}</p>
+  <p><strong>Episodes Appeared:</strong> {{ character.episode.length }}</p>
+  <p><strong>Created:</strong> {{ character.created | date: 'longDate' }}</p>
+  <button (click)="goBack()">Explore Characters</button>
 </div>
 
 <footer>
