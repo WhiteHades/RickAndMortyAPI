@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #282c34;
-  color: #abb2bf;
+  color: #ced4e1;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@ header, footer {
   left: 0;
   padding: 30px 0;
   background-color: #282c34;
-  color: #abb2bf;
+  color: #ced4e1;
   width: 100%;
   flex-shrink: 0;
 }
@@ -87,6 +87,11 @@ footer {
 
 .dead {
   background-color: #d43d2e;
+}
+
+.character-image {
+  border-radius: 2px;
+  border: 2px solid #ece48b;
 }
 
 .profile-container button {

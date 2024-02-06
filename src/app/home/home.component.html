@@ -20,7 +20,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let character of displayedChars">
+    <tr *ngFor="let character of charsDisplayed">
       <td>
         <img [src]="character.image" alt="avatar" class="character-avatar" (click)="goToProfile(character.id)">
       </td>
@@ -33,20 +33,18 @@
     </tbody>
   </table>
 
-<!--    <input type="text" [(ngModel)]="searchTerm" (input)="filterChar()" placeholder="Search">-->
-
   <div class="search-container">
-    <input type="text" placeholder="Search">
+    <input type="text" [(ngModel)]="charsSearch" (input)="filterChars()" placeholder="Search">
   </div>
 
   <div class="pagination-container">
-    <a href="javascript:void(0)" (click)="prev()" [class.disabled]="displayPage === 1">
+    <a href="javascript:void(0)" (click)="prev()" [class.disabled]="pgDisplay === 1">
       <i class="material-icons">chevron_left</i>
     </a>
-    <ng-container *ngFor="let p of getVisiblePageNumbers()">
-      <a href="javascript:void(0)" (click)="goToDisplayPage(p)" [class.active]="displayPage === p">{{ p }}</a>
+    <ng-container *ngFor="let p of getVisiblePgNums()">
+      <a href="javascript:void(0)" (click)="goToDisplayPg(p)" [class.active]="pgDisplay === p">{{ p }}</a>
     </ng-container>
-    <a href="javascript:void(0)" (click)="next()" [class.disabled]="displayPage === totalDisplayPages">
+    <a href="javascript:void(0)" (click)="next()" [class.disabled]="pgDisplay === getTotalDisplayPg()">
       <i class="material-icons">chevron_right</i>
     </a>
   </div>

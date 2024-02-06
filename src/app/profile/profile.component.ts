@@ -9,7 +9,6 @@ import { RickAndMortyServ } from '../rick-andmorty.service';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent implements  OnInit {
-  characterId: number | null = null
   character: CharacterDetails | null = null
 
   constructor(private route: ActivatedRoute, private rickAndMortyServ: RickAndMortyServ, private router: Router) {}
@@ -17,8 +16,7 @@ export class ProfileComponent implements  OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       // @ts-ignore
-      const id = +params.get('id');
-      if (id) { this.loadCharacter(id); }
+      const id = +params.get('id'); if (id) { this.loadCharacter(id); }
     });
   }
 
@@ -29,7 +27,5 @@ export class ProfileComponent implements  OnInit {
     });
   }
 
-  goBack(): void {
-    this.router.navigate(['/home']).then(r => console.log('Navigated to home'));
-  }
+  goBack(): void { this.router.navigate(['/home']).then(r => console.log('Navigated to home')); }
 }

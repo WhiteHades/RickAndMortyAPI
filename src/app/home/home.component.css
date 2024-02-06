@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #282c34;
-  color: #abb2bf;
+  color: #ced4e1;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@ header, footer {
   left: 0;
   padding: 30px 0;
   background-color: #282c34;
-  color: #abb2bf;
+  color: #ced4e1;
   width: 100%;
   flex-shrink: 0;
 }
@@ -102,10 +102,17 @@ footer {
   height: 1vh;
 }
 
+.search-container input {
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
 .pagination-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .pagination-container a {
