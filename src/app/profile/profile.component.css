@@ -110,6 +110,12 @@ footer {
   color: #282c34;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
 @media (max-width: 768px) {
   .profile-container {
     width: 95%;

@@ -23,7 +23,12 @@
   <p><strong>Last Location:</strong> {{ character.location.name }}</p>
   <p><strong>Episodes Appeared:</strong> {{ character.episode.length }}</p>
   <p><strong>Created:</strong> {{ character.created | date: 'd MMMM, y' }}</p>
-  <button (click)="goBack()">Explore Characters</button>
+  <div class="button-container">
+    <button (click)="goPrev()">Previous</button>
+    <button (click)="goBack()">Explore Characters</button>
+    <button (click)="goNext()">Next</button>
+  </div>
+<!--  <button (click)="goBack()">Explore Characters</button>-->
 </div>
 
 <footer>
