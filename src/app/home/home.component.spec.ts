@@ -6,7 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 
-describe('HomeComponent Unit Test', () => {
+describe('1 - HomeComponent Unit Test', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
   let service: RickAndMortyServ;
@@ -41,11 +41,14 @@ describe('HomeComponent Unit Test', () => {
     })); fixture.detectChanges();
   });
 
-  it('should create', () => { expect(component).toBeTruthy(); });
+  it('should create', () => { // @ts-ignore
+    expect(component).toBeTruthy(); });
 
   it('should fetch characters on ngOnInit', () => {
     component.ngOnInit();
+    // @ts-ignore
     expect(service.getChars).toHaveBeenCalled();
+    // @ts-ignore
     expect(component.chars.length).toBeGreaterThan(0);
   });
 
@@ -53,11 +56,12 @@ describe('HomeComponent Unit Test', () => {
     const searchTerm = 'Rick';
     component.charsSearch = searchTerm;
     component.filterChars();
+    // @ts-ignore
     expect(component.charsDisplayed.every(char => char.name.includes(searchTerm))).toBeTrue();
   });
 });
 
-describe('HomeComponent Integration Test', () => {
+describe('1 - HomeComponent Integration Test', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
   let service: RickAndMortyServ;
@@ -87,8 +91,11 @@ describe('HomeComponent Integration Test', () => {
     fixture.whenStable().then(() => {
       fixture.detectChanges();
       const compiled = fixture.debugElement.nativeElement;
+      // @ts-ignore
       expect(compiled.querySelector('.character-name').textContent).toContain('Alien Morty');
+      // @ts-ignore
       expect(compiled.querySelector('.character-species').textContent).toContain('Alien');
+      // @ts-ignore
       expect(compiled.querySelector('.character-status').textContent).toContain('unknown');
     });
   }));
@@ -96,6 +103,7 @@ describe('HomeComponent Integration Test', () => {
   it('should correctly paginate characters', waitForAsync(async () => {
     component.next();
     await fixture.whenStable();
+    // @ts-ignore
     expect(component.chars.length).toBeLessThanOrEqual(6);
   }));
 
@@ -103,6 +111,7 @@ describe('HomeComponent Integration Test', () => {
     component.charsSearch = 'Rick';
     component.filterChars();
     await fixture.whenStable();
+    // @ts-ignore
     expect(component.charsDisplayed.every((char) => char.name.includes('Rick'))).toBeTrue();
   });
 });
