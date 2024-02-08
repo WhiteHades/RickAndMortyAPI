@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed} from '@angular/core/testing';
 import { ProfileComponent } from './profile.component';
 import { RickAndMortyServ } from '../rick-andmorty.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -62,4 +62,43 @@ describe('2 - ProfileComponent Unit Test', () => {
   });
 });
 
-describe('2 - HomeComponent Integration Test', () => { });
+describe('2 - ProfileComponent Integration Test', () => {
+  let component: ProfileComponent;
+  let fixture: ComponentFixture<ProfileComponent>;
+  let router: Router;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ProfileComponent],
+      imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([])], // Define routes if needed
+      providers: [RickAndMortyServ]
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(ProfileComponent);
+    component = fixture.componentInstance;
+    router = TestBed.inject(Router);
+    fixture.detectChanges();
+
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+  });
+
+  it('should navigate back to home on goBack()', () => {
+    component.goBack();
+    // @ts-ignore
+    expect(router.navigate).toHaveBeenCalledWith(['/home']);
+  });
+
+  it('should navigate to the previous character on goPrev()', () => {
+    component.characterId = 2;
+    component.goPrev();
+    // @ts-ignore
+    expect(router.navigate).toHaveBeenCalledWith(['/profile', component.characterId - 1]);
+  });
+
+  it('should navigate to the next character on goNext()', () => {
+    component.characterId = 2;
+    component.goNext();
+    // @ts-ignore
+    expect(router.navigate).toHaveBeenCalledWith(['/profile', component.characterId + 1]);
+  });
+});
