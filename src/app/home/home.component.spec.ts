@@ -106,3 +106,4 @@ describe('HomeComponent Integration Test', () => {
     expect(component.charsDisplayed.every((char) => char.name.includes('Rick'))).toBeTrue();
   });
 });
+
