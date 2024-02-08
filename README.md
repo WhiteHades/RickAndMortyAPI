@@ -1,27 +1,16 @@
-# RickAndMortyAPI
+# Rick and Morty Character API
+A web application that leverages the Rick and Morty API to display characters from the show. It provides functionalities to view a list of characters, detailed profiles, and navigate through the characters using search and pagination.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+## Features
+- Character Listing: Displays characters with their images, names, species, and status.
+- Character Profiles: Shows detailed information about each character, including origin, last location, and episode appearances.
+- Search Functionality: Allows users to filter characters by name.
+- Navigation Controls: Includes buttons to navigate between character profiles and back to the character list.
 
-## Development server
+## Technical Details
+- Framework: The application is developed using Angular, showcasing dynamic web development practices.
+- Testing: Includes unit, integration, and E2E testing using Jasmine for unit and integration tests, and Cypress for E2E tests.
+- Responsive Design: Ensures compatibility across different devices and screen sizes.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Development Approach
+The development of this project follows modern web development practices, with a focus on component-based architecture, service-oriented patterns for API interactions, and comprehensive testing strategies to ensure application reliability.
