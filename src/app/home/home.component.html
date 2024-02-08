@@ -24,11 +24,11 @@
       <td>
         <img [src]="character.image" alt="avatar" class="character-avatar" (click)="goToProfile(character.id)">
       </td>
-      <td>
+      <td class="character-name">
         <span class="click1" (click)="goToProfile(character.id)">{{ character.name }}</span>
       </td>
-      <td>{{ character.species }}</td>
-      <td>{{ character.status }}</td>
+      <td class="character-species"> {{ character.species }}</td>
+      <td class="character-status">{{ character.status }}</td>
     </tr>
     </tbody>
   </table>
