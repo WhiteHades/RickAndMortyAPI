@@ -5,11 +5,13 @@ describe('1 - HomeComponent E2E Tests', () => {
 
   it('should display characters after page load', () => {
     cy.get('.table').should('exist');
-    cy.get('tr').within(() => {
-      cy.get('.character-avatar').should('have.length.at.least', 1);
-      cy.get('.character-name').should('have.length.at.least', 1);
-      cy.get('.character-species').should('have.length.at.least', 1);
-      cy.get('.character-status').should('have.length.at.least', 1);
+    cy.get('tbody tr').each(($row) => {
+      cy.wrap($row).within(() => {
+        cy.get('.character-avatar').should('have.length', 1);
+        cy.get('.character-name').should('exist');
+        cy.get('.character-species').should('exist');
+        cy.get('.character-status').should('exist');
+      });
     });
   });
 

@@ -11,7 +11,7 @@
 
 <div *ngIf="character" class="profile-container">
   <img [src]="character.image" alt="{{ character.name }}" class="character-image">
-  <h2>{{ character.name }} • {{ character.species }}</h2>
+  <h2 class="character-species">{{ character.name }} • {{ character.species }}</h2>
   <p><strong>ID:</strong> {{ character.id }}</p>
   <p>
     <strong>Status:</strong> {{ character.status }}
@@ -28,9 +28,7 @@
     <button (click)="goBack()">Explore Characters</button>
     <button (click)="goNext()">Next</button>
   </div>
-<!--  <button (click)="goBack()">Explore Characters</button>-->
 </div>
-
 <footer>
   <p>
     <span>❮❯ by </span>
