@@ -9,7 +9,7 @@ import { RickAndMortyServ } from '../rick-andmorty.service';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent implements  OnInit {
-  character: CharacterDetails | null = null
+  character: CharacterDetails | null = null;
   characterId: number | null = null;
 
   constructor(private route: ActivatedRoute, private rickAndMortyServ: RickAndMortyServ, private router: Router) {}
