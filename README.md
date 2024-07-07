@@ -1,5 +1,5 @@
 # Rick and Morty Character API
-Made with angular. Uses the Rick and Morty API to display characters from the show. It provides functionalities to view a list of characters, detailed profiles, and navigate through the characters using search and pagination.
+Made with angular. Uses the [Rick and Morty API](https://rickandmortyapi.com/) to display characters from the show. It provides functionalities to view a list of characters, detailed profiles, and navigate through the characters using search and pagination.
 
 ## Features
 - Character lists: Displays characters with their images, names, species, and status.
